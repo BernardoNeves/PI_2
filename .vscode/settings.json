@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "functions.h": "c",
+        "conio.h": "c",
+        "menus.h": "c"
+    }
+}

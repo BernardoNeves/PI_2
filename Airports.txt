@@ -1,0 +1,5 @@
+FNC, Madeira Airport, Funchal, 59,
+FRA, Frankfurt Airport, Frankfurt, 111,
+LIS, Humberto Delgado Airport, Lisboa, 114,
+OPO, Francisco Sa Carneiro Airport, Porto, 69,
+IDA, Idanha a Nova, Idanha, 56,
