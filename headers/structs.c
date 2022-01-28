@@ -138,7 +138,6 @@ void StructWrite() // write structs to each structfile
 void StructPrint() // print struct arrays
 {
    system("cls"); // clears console
-   StructRead();  // loads arrays
 
    switch (Structs) // switch case for witch file to be affected by the operation
    {
@@ -176,7 +175,6 @@ void StructPrint() // print struct arrays
 
 void StructSearch() // search for an item on a struct array
 {
-   StructRead(); // loads arrays
    int Found = 0, Cancel = 1, LetterCount = 0;
 
    switch (Structs) // switch case for witch file to be affected by the operation
@@ -429,7 +427,7 @@ void StructSearch() // search for an item on a struct array
 void StructAdd() // add an item to a struct array
 {
    char Name[200], NIF[200];
-   StructRead();
+
    switch (Structs) // switch case for witch file to be affected by the operation
    {
    case 'A':
@@ -717,14 +715,12 @@ void StructAdd() // add an item to a struct array
          {
             system("cls");
             printf("\nPlanes swapped successfully!");
-            StructWrite();
          }
       }
       printf("\nPress any key to continue..");
       getch();
       break;
    }
-   StructWrite();
 }
 
 void StructRemove() // remove  an item from a struct array
@@ -812,7 +808,6 @@ void StructRemove() // remove  an item from a struct array
       TicketCount--; // subtracts 1 to the "TicketCount" so that "StructWrite" writes one less ticket than the number of tickets read, in order to write all the airports correctly
       break;
    }
-   StructWrite();
 }
 
 void StructModify() // modify  an item from a struct array
@@ -875,13 +870,10 @@ int *CheckForOtherAirplanes(Airplane CurrentAirplane)
 
    for (int i = 0; i < AirplaneCount; i++)
    {
-      if (strcmp(Airplanes[i].Brand, CurrentAirplane.Brand) == 0 && strcmp(Airplanes[i].Plate, CurrentAirplane.Plate) != 0)
+      if (strcmp(Airplanes[i].Plate, CurrentAirplane.Plate) != 0 && Airplanes[i].Seats > CurrentAirplane.Seats)
       {
-         if (Airplanes[i].Seats > CurrentAirplane.Seats)
-         {
-            foundAirplanes[j] = i;
-            j++;
-         }
+         foundAirplanes[j] = i;
+         j++;
       }
    }
 
@@ -1019,7 +1011,6 @@ int CheckAvailability()
 
 float FlightTime(char *FligthNumber) // To get the Time spent on the flight
 {
-   StructRead();
    int Hour = 0, Day1, Hour1, Day2, Hour2;
    float Minute = 0, Minute1, Minute2, Time;
 
@@ -1067,7 +1058,6 @@ float FlightTime(char *FligthNumber) // To get the Time spent on the flight
 
 void Finance() // To know if the Flight gives profit or not
 {
-   StructRead();
    int Check;
    float Distance, Time, FlightCrewPrice, Fuel, FuelPrice;
 
@@ -1133,7 +1123,6 @@ void GetsLink() // To get were you are Staying and your Desination
 
 float WaitTime(char *FlightNumber, char *FlightNumber1) // To get the Time Spent Waiting
 {
-   StructRead();
 
    int Hour = 0, Day1, Hour1, Day2, Hour2;
    float Minute = 0, Minute1, Minute2, Time;
@@ -1189,7 +1178,6 @@ float WaitTime(char *FlightNumber, char *FlightNumber1) // To get the Time Spent
 
 float GetsTotalFlightTime(int Connections, char *Origin, char *Middle1, char *Middle2, char *Destination) // To get The Total Flying Time beetwen multiples Flights
 {
-   StructRead();
 
    float FlightTime1, FlightTime2, FlightTime3, FlightTime4, TotalTime;
 
@@ -1224,7 +1212,6 @@ float GetsTotalFlightTime(int Connections, char *Origin, char *Middle1, char *Mi
 
 float GetsTotalWaitTime(int Connections, char *Origin, char *Middle1, char *Middle2, char *Destination) // To get The Total Waiting Time beetwen Multiples Flights
 {
-   StructRead();
 
    float WaitTime1, WaitTime2, WaitTime3, TotalTime;
 

@@ -20,7 +20,7 @@ void MainMenu()
           "\t Enter 4 - Tickets \n"
           "\n\t Enter 0 - Quit\n");
 
-   ChoiceInt = GetInt(0, 5);
+   ChoiceInt = GetInt(0, 4);
    switch (ChoiceInt)
    {
    case 1:
@@ -35,10 +35,8 @@ void MainMenu()
    case 4:
       Structs = 'T'; // Changes the struct.c switch case in each function to change the file affected by the operation
       break;
-   case 5:
-      Link();
-      break;
    case 0:
+      StructWrite();
       _Exit(0); // Exits the program
       break;
    default:
